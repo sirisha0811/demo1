@@ -10,16 +10,23 @@ import javax.persistence.OneToOne;
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Integer id;
-	@OneToOne (mappedBy = "address")
+	private Integer id;
+
+	private String house;
+	private String street;
+
+	@OneToOne(mappedBy = "address")
 	User user;
+
+	@OneToOne(mappedBy = "address")
+	Company company;
+
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	 String house;
 	public String getHouse() {
 		return house;
 	}
@@ -32,6 +39,5 @@ public class Address {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	String street;
 
 }
